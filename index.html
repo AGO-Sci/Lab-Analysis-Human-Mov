@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laboratorio de Biomecánica | UCEN</title>
+  <meta name="description" content="Laboratorio de Análisis Avanzado del Movimiento Humano. Investigación, docencia e innovación en biomecánica, EMG, captura de movimiento, plataformas de fuerza e IMUs." />
+  <meta property="og:title" content="Laboratorio de Biomecánica | UCEN" />
+  <meta property="og:description" content="Investigación, docencia e innovación en biomecánica y análisis del movimiento humano." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="/favicon.png" />
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --accent:#0ea5e9; --accent-2:#22d3ee; --ring:rgba(34,211,238,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";background:linear-gradient(180deg,#0b1020, #0b1020 60%, #0a142a);color:var(--text);line-height:1.6}
+    a{color:var(--accent)}
+    .container{max-width:1080px;margin:0 auto;padding:0 1rem}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(11,16,32,.7);border-bottom:1px solid rgba(148,163,184,.2);z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem 0}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700;letter-spacing:.3px}
+    .brand .dot{width:.75rem;height:.75rem;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 .3rem var(--ring)}
+    .menu{display:flex;flex-wrap:wrap;gap:.6rem}
+    .menu a{padding:.45rem .7rem;border-radius:999px;text-decoration:none;color:var(--text);opacity:.85;border:1px solid transparent}
+    .menu a:hover{opacity:1;border-color:rgba(148,163,184,.25);background:rgba(148,163,184,.06)}
+    .hero{padding:6rem 0 4rem}
+    h1{font-size:clamp(1.8rem,3.8vw,3rem);line-height:1.1;margin:.25rem 0 1rem}
+    .lead{font-size:clamp(1rem,1.4vw,1.2rem);color:var(--muted);max-width:60ch}
+    .cta{display:flex;gap:.8rem;margin-top:1.25rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-radius:12px;border:1px solid rgba(148,163,184,.25);text-decoration:none;color:var(--text);background:rgba(148,163,184,.06)}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#001018;border-color:transparent;font-weight:700}
+    section{padding:3.5rem 0;border-top:1px solid rgba(148,163,184,.15)}
+    h2{font-size:1.6rem;margin:0 0 1rem}
+    p{margin:.25rem 0 .75rem}
+    .grid{display:grid;gap:1rem}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid rgba(148,163,184,.2);border-radius:16px;padding:1rem}
+    .tag{display:inline-block;padding:.2rem .6rem;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--muted);font-size:.8rem;margin:.2rem .3rem .2rem 0}
+    .muted{color:var(--muted)}
+    ul{padding-left:1.2rem;margin:.5rem 0}
+    .people{display:grid;gap:1rem;grid-template-columns:repeat(4,minmax(0,1fr))}
+    @media (max-width:900px){.people{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .person{background:var(--card);padding:1rem;border:1px solid rgba(148,163,184,.2);border-radius:12px}
+    .person img{width:100%;height:160px;object-fit:cover;border-radius:10px;border:1px solid rgba(148,163,184,.2);background:#0b1020}
+    .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    @media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .kpi{background:var(--card);border:1px solid rgba(148,163,184,.2);border-radius:16px;padding:1rem;text-align:center}
+    .kpi h3{margin:0;font-size:2rem}
+    footer{padding:2rem 0;border-top:1px solid rgba(148,163,184,.15);color:var(--muted)}
+    .small{font-size:.9rem}
+    .sep{height:1px;background:linear-gradient(90deg,transparent,rgba(148,163,184,.4),transparent);margin:2rem 0}
+    .note{border-left:3px solid var(--accent);padding:.75rem 1rem;background:rgba(14,165,233,.07);border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="dot" aria-hidden="true"></span> Lab de Biomecánica</div>
+        <div class="menu" role="navigation" aria-label="Primary">
+          <a href="#inicio">Inicio</a>
+          <a href="#investigacion">Investigación</a>
+          <a href="#infraestructura">Infraestructura</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#docencia">Docencia</a>
+          <a href="#publicaciones">Publicaciones</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="container hero">
+    <span class="tag">Universidad Central de Chile · Santiago</span>
+    <h1>Laboratorio de Análisis Avanzado del Movimiento Humano</h1>
+    <p class="lead">Investigamos, enseñamos e innovamos en <strong>biomecánica</strong> y <strong>análisis del movimiento humano</strong>. Integramos captura de movimiento 3D, plataformas de fuerza, electromiografía (EMG), IMUs, visión por computadora y prototipado de bajo costo para resolver problemas reales en salud y rendimiento humano.</p>
+    <div class="cta">
+      <a class="btn primary" href="#contacto">Agendar visita</a>
+      <a class="btn" href="#infraestructura">Ver equipamiento</a>
+    </div>
+  </main>
+
+  <section id="investigacion">
+    <div class="container">
+      <h2>Áreas de investigación</h2>
+      <p class="muted">Líneas activas y proyectos recientes.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Biomecánica de la marcha</h3>
+          <p>Detección de eventos, parámetros espaciotemporales y métricas no lineales (RQA) para caracterizar el desarrollo motor y el riesgo de caída.</p>
+          <span class="tag">Vicon</span><span class="tag">ProCalc</span><span class="tag">RQA</span>
+        </div>
+        <div class="card">
+          <h3>Electromiografía aplicada</h3>
+          <p>Onset, amplitud, co-contracción y fatiga muscular en tareas funcionales (marcha, salto, prensión) con EMG de superficie.</p>
+          <span class="tag">Cometa</span><span class="tag">EMG</span><span class="tag">CVM</span>
+        </div>
+        <div class="card">
+          <h3>Control postural y balance</h3>
+          <p>Análisis del Centro de Presión (CoP) en bipedestación y tareas duales. Retroalimentación en tiempo real con sistemas portátiles.</p>
+          <span class="tag">AMTI</span><span class="tag">CoP</span><span class="tag">IMU</span>
+        </div>
+        <div class="card">
+          <h3>Instrumentación accesible</h3>
+          <p>Prototipos con Arduino e IMUs de bajo costo para democratizar el análisis del movimiento en contextos clínicos y educativos.</p>
+          <span class="tag">Arduino</span><span class="tag">IMU</span><span class="tag">Open-source</span>
+        </div>
+        <div class="card">
+          <h3>Educación basada en simulación</h3>
+          <p>Diseño de OSCE/OSPE, debriefing y evaluación del razonamiento clínico con tecnología y escenarios inmersivos.</p>
+          <span class="tag">Simulación</span><span class="tag">ECOE/OSCE</span>
+        </div>
+        <div class="card">
+          <h3>Visión por computadora</h3>
+          <p>Estimación de pose, seguimiento MOT y análisis de patrones en dibujos infantiles (Kellogg) con OpenCV y MediaPipe.</p>
+          <span class="tag">OpenCV</span><span class="tag">MediaPipe</span>
+        </div>
+      </div>
+      <div class="sep"></div>
+      <div class="kpis">
+        <div class="kpi"><h3>10+</h3><div>Equipos de bioinstrumentación</div></div>
+        <div class="kpi"><h3>25+</h3><div>Proyectos y tesis</div></div>
+        <div class="kpi"><h3>15+</h3><div>Colaboraciones</div></div>
+        <div class="kpi"><h3>50+</h3><div>Publicaciones y ponencias</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="infraestructura">
+    <div class="container">
+      <h2>Infraestructura</h2>
+      <p class="muted">Tecnología disponible en el laboratorio.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Captura de movimiento 3D</h3>
+          <p>Vicon (10 cámaras IR) con modelos Plug‑in‑Gait y Full Body AI.</p>
+        </div>
+        <div class="card">
+          <h3>Plataforma de fuerza</h3>
+          <p>AMTI con adquisición sincronizada para análisis del CoP y fuerzas de reacción.</p>
+        </div>
+        <div class="card">
+          <h3>Electromiografía (EMG)</h3>
+          <p>Cometa Systems: protocolos de CVM, onset, fatiga y co-contracción.</p>
+        </div>
+        <div class="card">
+          <h3>IMUs y acelerometría</h3>
+          <p>Registro portátil para balance, marcha y tareas dinámicas.</p>
+        </div>
+        <div class="card">
+          <h3>Impresión 3D</h3>
+          <p>Ender 3 Plus para prototipado rápido y ayudas técnicas.</p>
+        </div>
+        <div class="card">
+          <h3>Prototipado electrónico</h3>
+          <p>Arduino, sensores y actuadores para sistemas de medición y feedback.</p>
+        </div>
+      </div>
+      <p class="note small">¿Quieres visitar el lab con tu curso o colaborar en un proyecto? <a href="#contacto">Escríbenos</a>.</p>
+    </div>
+  </section>
+
+  <section id="equipo">
+    <div class="container">
+      <h2>Equipo</h2>
+      <div class="people">
+        <div class="person">
+          <img alt="Foto Director" src="https://placehold.co/600x400/png" />
+          <h3>Dirección</h3>
+          <p><strong>Arturo González Olguín</strong> — Kinesiólogo. Dr. en Educación, Mg. en Neurociencia, Mg. en Terapia Manual Ortopédica. Docencia, investigación e innovación en análisis del movimiento.</p>
+          <p class="muted small">Intereses: Biomecánica de la marcha, EMG, simulación clínica, educación basada en proyectos.</p>
+        </div>
+        <div class="person">
+          <img alt="Foto Investigador/a" src="https://placehold.co/600x400/png" />
+          <h3>Investigación</h3>
+          <p>Estudiantes tesistas y colaboradores en líneas de biomecánica, control postural, visión por computadora e instrumentación.</p>
+        </div>
+        <div class="person">
+          <img alt="Foto Docencia" src="https://placehold.co/600x400/png" />
+          <h3>Docencia</h3>
+          <p>Asignaturas: Biomecánica I & II, Análisis del Movimiento, Bases Biofísicas, Neurokinesiología, EMG aplicada.</p>
+        </div>
+        <div class="person">
+          <img alt="Foto Colaboraciones" src="https://placehold.co/600x400/png" />
+          <h3>Colaboraciones</h3>
+          <p>Vínculos con UCEN, UDP, Tec de Monterrey y redes de investigación nacionales e internacionales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="docencia">
+    <div class="container">
+      <h2>Docencia</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Asignaturas</h3>
+          <ul>
+            <li>Biomecánica y análisis del movimiento humano (pregrado y posgrado)</li>
+            <li>Bases Biofísicas aplicadas a la Kinesiología (laboratorios activos)</li>
+            <li>Neurociencia y aprendizaje motor</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Talleres & extensión</h3>
+          <ul>
+            <li>Academia de Invierno: EMG, IMUs, impresión 3D</li>
+            <li>Clínicas de Vicon & ProCalc</li>
+            <li>Formación en simulación clínica y ECOE</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publicaciones">
+    <div class="container">
+      <h2>Publicaciones destacadas</h2>
+      <p class="muted small">Sube una lista manual o integra Google Scholar/Zotero en el futuro.</p>
+      <div class="card">
+        <ul>
+          <li>Gait structure during early motor development: A view from the Recurrence Quantification Analysis (RQA). <em>Journal of Motor Learning and Development</em>, 2025. <a href="#">preprint</a></li>
+          <li>Hands‑On bioinstrumentation for Kinesiology students. <em>Educational Innovations</em>, 2024. <a href="#">PDF</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Escríbenos</h3>
+          <p class="muted">Para visitas, proyectos, tesis o colaboración.</p>
+          <p class="small">Correo: <a href="mailto:biomecanica@ejemplo.cl">biomecanica@ejemplo.cl</a><br/>Ubicación: Santiago, Chile</p>
+          <p class="small">También podemos agendar por <a href="#">Google Meet</a>.</p>
+        </div>
+        <div class="card">
+          <h3>Mapa</h3>
+          <p class="small muted">(Inserta aquí un iframe de Google Maps o una imagen del campus.)</p>
+        </div>
+      </div>
+      <p class="note small">Consejo: si aún no tienes dominio, puedes publicar gratis con GitHub Pages. Abajo te dejo los pasos.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="small">© <span id="y"></span> Lab de Biomecánica — Hecho con HTML/CSS. <span class="muted">Código abierto</span>.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
